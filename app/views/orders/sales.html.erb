@@ -39,4 +39,12 @@
     <li> <%= link_to 'NEW PRODUCT', new_product_path, class: "btn btn-link" %></li>
   <%end%>
 </div>
+<% unless @orders.empty? %>
 
+<nav>
+  <ul class="pager">
+    <li class="previous " <%= will_paginate @orders %> <span aria-hidden="true">&larr;
+   
+  </ul>
+</nav>
+<% end %>

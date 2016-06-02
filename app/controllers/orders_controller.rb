@@ -5,11 +5,11 @@ class OrdersController < ApplicationController
 
 
    def sales
-  @orders=Order.all.where(seller: current_admin).order("created_at DESC")
+  @orders=Order.all.where(seller: current_admin).paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
  end
 
  def purchases
-  @orders=Order.all.where(buyer: current_user).order("created_at DESC")
+  @orders=Order.all.where(buyer: current_user).paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
  end
 
   # GET /orders

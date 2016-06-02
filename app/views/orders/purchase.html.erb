@@ -29,5 +29,13 @@
     </table>
 
   
+<% unless @orders.empty? %>
 
+<nav>
+  <ul class="pager">
+    <li class="previous " <%= will_paginate @orders %> <span aria-hidden="true">&larr;
+   
+  </ul>
+</nav>
+<% end %>
 
