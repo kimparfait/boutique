@@ -1,9 +1,17 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
+@import url(http://fonts.googleapis.com/css?family=Lora|Ubuntu:300,400,500);
 @import "bootstrap-sprockets";
 @import "bootstrap";
-body {
+@mixin body {
 	background-color: #f5f5f1;
 	color: #333333;
 	font-family: Arial, Helvetica, Sans-Serif;
+	border-radius: 5px;
+	box-shadow: 3px 3px 5px 6px #ccc;
+	padding: 1.5em 1.25em;
+	box-sizing: border-box;
+	 padding-top: 80px; 
 }
 	
 .navbar-default {
@@ -49,4 +57,198 @@ body {
 		font-size: 15px;
 		margin: 0px;
 		}
+}
+
+.thumbnail {
+
+ padding:1px;
+border:1px solid #021a40;
+ width:240px;
+ height: 340px;
+	
+}
+.book-info {
+	@include body;
+
+	.book-title {
+		margin-top: 0;
+		font-size: 2em;
+	}
+
+	.avg-rating {
+		font-size: 1.5em;
+		margin-top: 15px;
+		margin-bottom: 5px;
+	}
+
+	.number-of-reviews {
+		font-size: 0.85em;
+		font-style: italic;
+	}
+
+	.book-author {
+		font-size: 1.5em;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		span {
+			font-size: 0.80em;
+		}	
+	}
+
+	.book-desc {
+		font-size: 1.05em;
+		line-height: 1.5;
+		margin-bottom: 15px;
+		margin-top: 15px;
+	}
+
+}
+.btn-custom {
+	color: #333333;
+	background-color: #fff;
+	border: 1px solid #333333;;
+	padding: 8px 20px;
+	border-radius: 5px;
+	font-family: 'Ubuntu', sans-serif;
+	&:hover {
+		text-decoration: none;
+		background-color: darken(#f1c40f, 5%);
+		color: #fff;
+		transition: 0.5s;
+	}
+}
+/* New Book Form styles */
+
+.new-book-form {
+	@include body;
+
+	h1 {
+		margin-top: 0;
+	}
+
+	#category_id {
+		margin-bottom: 10px;
+	}
+
+	#book_book_img {
+		margin-bottom: 10px;
+	}
+
+}
+
+
+/* Edit Book Form styles */
+
+.edit-book-form {
+
+@include body;
+
+	h1 {
+		margin-top: 0;
+	}
+
+	#book_category_id {
+		margin-bottom: 10px;
+	}
+
+	#book_book_img {
+		margin-bottom: 10px;
+	}
+
+}
+
+/* New/Edit review form styles */
+
+.new-review-form, .edit-review-form {
+@include body;
+
+	h1 {
+		margin-top: 0;
+	}
+
+	#rating-form {
+		margin-bottom: 15px;
+
+		label {
+			display: block;
+		}
+
+	}
+
+}
+
+
+/* Signup/Login form styles */
+
+.signup-form {
+@include body;
+
+	h2 {
+		margin-top: 0;
+	}
+
+}
+
+.login-form {
+	@include body;
+
+	h2 {
+		margin-top: 0;
+	}
+
+}
+
+
+/* Reviews styles */
+
+.reviews {
+
+	@include body;
+	
+	margin-top: 40px;
+
+	h1 {
+		margin-top: 0;
+		margin-bottom: 15px;
+		font-size: 2em;
+	}
+
+	.review {
+		border-bottom: 1px solid gainsboro;
+		margin-bottom: 15px;
+		padding-bottom: 10px;
+
+		.review-comment {
+			font-size: 1.05em;
+			line-height: 1.5;
+		}
+
+	}
+
+	.new-review {
+		padding-top: 8px;
+	}
+
+	}
+
+
+	.avg-rating {
+		font-size: 1.5em;
+		margin-top: 15px;
+		margin-bottom: 5px;
+	}
+
+	.number-of-reviews {
+		font-size: 0.85em;
+		font-style: italic;
+	}
+
+	.jumbotron{
+	background-image: url('19.jpg');
+	@include body;
+	
+
+	h1,h2 {
+	font-family: guardian-egyptt, georgia, serif;
+	}
 }

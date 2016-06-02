@@ -1,0 +1,33 @@
+<div class="center">
+<h1 class="current-category" style="color:blue">My purchases </h1>
+  
+</div>
+
+<table class = "table table-striped table-bordered table-hover" width="200" height="60">
+<tr>
+
+<th class = "center">Image</th>
+    <th class = "center">Product</th>
+    <th class = "center">Price</th>
+    <th class = "center">Date Bought</th>
+    
+</tr>
+
+<% @orders.each do |order| %>
+ <tr>
+      <td><%= image_tag order.product.image.url(:thumb) %></td>
+      <td><%= order.product.name %></td>
+      <td><%= number_to_currency(order.product.price)  %></td>
+
+      <td ><%= order.created_at.strftime("%B %-d, %Y") %></td>
+      
+    
+    
+      </tr>
+      <%end%>
+
+    </table>
+
+  
+
+

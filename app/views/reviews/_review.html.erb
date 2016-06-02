@@ -1,0 +1,20 @@
+<div class="review ">
+<p style="color:blue"> <%= review.user.name%></p>
+<div class="review-rating" data-score="<%= review.rating %>"></div>
+<p class="review-comment"> <%= review.comment %> (Posted <%=time_ago_in_words(review.created_at) %>)</p>
+
+
+
+
+
+
+<% if user_signed_in? %>
+
+	<% if review.user_id == current_user.id %>
+	  <div class="links btn-group">
+<%=link_to "Edit", edit_product_review_path(review.product, review),class: "btn btn-custom" %>
+<%=link_to "Delete", product_review_path(review.product, review), method: :delete, data: {confirm: "Are you sure?"} ,class: "btn btn-custom" %>
+</div>
+<%end%>
+<%end%>
+</div>

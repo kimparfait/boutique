@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 	<div class="row">
 	
@@ -6,14 +6,69 @@
 	   <div class="thumbnail">
 	     <%= image_tag @product.image.url %>
 	     </div>
+	     <%= link_to 'Back', products_path %>
 	</div>
+
+
 	   <div class=" col-md-6">
-	    <h3><%= @product.name %></h3>
-	    <p>  <%= @product.description %></p>
-	    <p>  <%=  number_to_currency(@product.price) %> </p>
+	   <div class="book-info">
+	    <h3 class="book-title"><%= @product.name %></h3>
+	    <p class="book-desc">  <%= @product.description %></p>
+	    <%=  number_to_currency(@product.price) %> </p>
+	    <div class="average-review-rating" data-score=<%=  @average_review %>> Average Rating: </div>
+	    <br>
+	    <div class="center">
+	    	 <%= link_to 'Buy now', new_product_order_path(@product), class: "btn btn-primary" %> 
+	    </div>
+	   
 
 	</div>
+	</div>
+
+<br>
+
+<div class="row">
+<div class="col-md-4">
+<div class="reviews"> 
+	<h5 ><%= @product.reviews.count %>Comment</h5>
+	<hr>
+	<%= render @product.reviews.limit(7).order("created_at DESC") %> 
+	
+
+	<%= form_for([@product,@product.reviews.build]) do |f| %>
+  
+<div id="rating-form">
+
+<label>Rating</label>
+</div>
+  <div class="form-group">
+   
+   <span class="glyphicon glyphicon-user"></span> <%= f.text_area :comment, placeholder: "Write comment", class: "form-control" %>
+  </div>
+  <div class="form-group ">
+    <%= f.submit "Submit ", class: "btn btn-success" %>
+  </div>
+<% end %>
+<script>
+	$('.review-rating').raty({
+		readOnly: true,
+		score: function() {
+			return $(this).attr('data-score');
+		},
+		path: '/assets/'
+	});
+</script>
+
+<script>
+	$('.average-review-rating').raty({
+		readOnly: true,
+		path: '/assets/',
+		score: function() {
+			return $(this).attr('data-score')
+		}
+	});
+</script>
 
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+
+

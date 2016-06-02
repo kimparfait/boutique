@@ -1,8 +1,18 @@
 Rails.application.routes.draw do
-  resources :products
+ 
+  devise_for :users
+  devise_for :admins
+  resources :products do 
+    resources :reviews
+     resources :orders
+  end 
   get 'pages/about'
 
   get 'pages/contact'
+
+  get'store'=> "products#store"
+  get 'sales'=> "orders#sales"
+  get 'purchases'=> "orders#purchases"
 
 root'products#index'
   # The priority is based upon order of creation: first created -> highest priority.

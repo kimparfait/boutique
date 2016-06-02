@@ -1,3 +1,16 @@
+<div class="jumbotron">
+
+<h1 style="color:blue ;">Buy with us</h1>
+
+</div>
+
+  <h3 class="current-category" style="color:blue" > <%= params[:category] %></h3>
+  
+  <% if @products.count== 0 %>
+
+  <h3> There are  no Items currently for that category </h3>
+
+  <%else%>
 <div class="row">
  <% @products.each do |product| %>
   <div class=" col-md-3">
@@ -7,7 +20,7 @@
       <div class="caption">
         <h3><%= product.name %></h3>
         <p><%= number_to_currency(product.price) %></p>
-        <p> <%= product.description %></p>
+     
         
       </div>
     </div>
@@ -18,5 +31,14 @@
 
 
 <br>
+<% unless @products.empty? %>
 
-<%= link_to 'New Product', new_product_path %>
+<nav>
+  <ul class="pager">
+    <li class="previous " <%= will_paginate @products %> <span aria-hidden="true">&larr;
+   
+  </ul>
+</nav>
+<% end %>
+<% end %>
+
