@@ -60,6 +60,7 @@
 }
 
 .thumbnail {
+@include body;
 
  padding:1px;
 border:1px solid #021a40;
@@ -246,7 +247,8 @@ border:1px solid #021a40;
 	.jumbotron{
 	background-image: url('19.jpg');
 	@include body;
-	
+	width: 1200px;
+
 
 	h1,h2 {
 	font-family: guardian-egyptt, georgia, serif;

@@ -17,9 +17,11 @@
 	    <%=  number_to_currency(@product.price) %> </p>
 	    <div class="average-review-rating" data-score=<%=  @average_review %>> Average Rating: </div>
 	    <br>
+	       
 	    <div class="center">
 	    	 <%= link_to 'Buy now', new_product_order_path(@product), class: "btn btn-primary" %> 
 	    </div>
+	 
 	   
 
 	</div>
@@ -30,7 +32,7 @@
 <div class="row">
 <div class="col-md-4">
 <div class="reviews"> 
-	<h5 ><%= @product.reviews.count %>Comment</h5>
+	<h5 >(<%= @product.reviews.count %>)Comments</h5>
 	<hr>
 	<%= render @product.reviews.limit(7).order("created_at DESC") %> 
 	

@@ -3,12 +3,12 @@ class ProductsController < ApplicationController
    before_filter :authenticate_admin!, only: [ :store, :new, :create, :edit, :update, :destroy]
 
   def store
-    @products= Product.where( admin: current_admin).paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
+    @products= Product.where( admin: current_admin).paginate(:page => params[:page], :per_page => 3).order("created_at DESC")
   end 
   # GET /products
   # GET /products.json
   def index
-    @products = Product.paginate(:page => params[:page], :per_page => 3).order("created_at DESC")
+    @products = Product.paginate(:page => params[:page], :per_page => 8).order("created_at DESC")
 
      if params[:category].present?
     category_id = Category.find_by(name: params[:category]).try(:id)
