@@ -20,11 +20,12 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
 
-    if @product.reviews.blank?
+     if @product.reviews.blank?
       @average_review = 0
     else
       @average_review = @product.reviews.average(:rating).round(2)
     end
+    
   end
 
   # GET /products/new
