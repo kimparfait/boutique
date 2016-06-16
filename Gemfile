@@ -20,6 +20,7 @@ gem 'will_paginate', '~> 3.1'
 
 gem 'jbuilder', '~> 2.0'
 gem "paperclip", "~> 4.3"
+gem 'impressionist'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 

@@ -16,6 +16,7 @@
 	    <p class="book-desc">  <%= @product.description %></p>
 	   <p> <%=  number_to_currency(@product.price) %> </p>
 	    <div class="average-review-rating" data-score=<%=  @average_review %>> Average Rating: </div>
+	    <p class="current-category" style="color:blue" > Views:<%=@product.impressionist_count(:filter=>:session_hash) %> <p>
 	    <br>
 	       
 	    <div class="center">

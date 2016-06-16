@@ -2,6 +2,9 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
    before_filter :authenticate_admin!, only: [ :store, :new, :create, :edit, :update, :destroy]
 
+  impressionist actions: [:show], unique: [:session_hash]
+
+
   def store
     @products= Product.where( admin: current_admin).paginate(:page => params[:page], :per_page => 3).order("created_at DESC")
   end 
@@ -25,7 +28,10 @@ class ProductsController < ApplicationController
     else
       @average_review = @product.reviews.average(:rating).round(2)
     end
-    
+
+     @products = Product.find(params[:id])
+  impressionist(@products)
+
   end
 
   # GET /products/new
